@@ -1,0 +1,32 @@
+\section*{Task 5.13}
+
+\subsection*{Task statement}
+
+Show that the equation $y'' - 2y' - 8y = 0$ has a general solution $y = C_1 e^{4x} + C_2 e^{-2x}$. Is it the most general solution? (Explain why.)
+
+\subsection*{Solution}
+
+The equation is a linear homogeneous second order ordinary differential equation.
+
+Let $y = e^{ax}$, then
+
+\[a^2 e^{ax} - 2a e^{ax} - 8 e^{ax} = 0\]
+\[a^2 - 2a - 8 = 0\]
+
+Solving this equation, we obtain the roots: $a = 4,\ a = -2$.
+
+The partial solutions are:
+\begin{enumerate}
+    \item $y_1 = C_1 e^{4x}$
+    \item $y_2 = C_2 e^{-2x}$
+\end{enumerate}
+
+To find a general solution for initial equation, we will combine the partial two:
+
+\[y = C_1 e^{4x} + C_2 e^{-2x}\]
+
+Vectors $\begin{pmatrix}e^{4x} \\ 0 \end{pmatrix}$ and $\begin{pmatrix}0 \\ e^{-2x} \end{pmatrix}$ are linearly independent, hence they form a basis of the space of all particular solutions of given differential equation.
+
+\subsection*{Answer}
+
+Given solution is a general solution (shown above), and also it is the most general due to linear independency.

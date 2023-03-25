@@ -1,0 +1,91 @@
+\section*{Task 7.10}
+
+\subsection*{Task statement}
+
+Validate the correspondence $(-e^{2t} + \frac{1}{2} e^{5t} + \frac{5}{2} e^t) \leftrightarrow \frac{3 + (2s - 9)(s - 2) - 12(s - 2)}{(s - 1)(s - 2)(s - 5)}$.
+
+\subsection*{Solution}
+
+\begin{enumerate}
+    \item Using Laplace transform:
+        \begin{displaymath}
+            \begin{aligned}
+                L(-2e^{2t} + \frac{e^{5t}}{2} + \frac{5e^t}{2}) & = L(-2e^{2t}) + L(\frac{1}{2} e^{5t}) + L(\frac{5}{2} e^t) \\
+                & = -\frac{1}{s - 2} + \frac{1}{2(s - 5) + \frac{5}{2(s - 1)}} \\
+                & = \frac{-2(s - 1)(s - 5) + (s - 1)(s - 2) + 5(s - 2)(s - 5)}{2(s - 2)(s - 1)(s - 5)} \\
+                & = \frac{2s^2 - 13s + 24}{(s - 1)(s - 2)(s - 5)}
+            \end{aligned}
+        \end{displaymath}
+
+        Therefore correspondence is wrong
+    
+    \item Using Inverse Laplace transform:
+        \begin{displaymath}
+            \begin{aligned}
+                \frac{3 + (2s - 9)(s - 2) - 12(s - 2)}{(s - 1)(s - 2)(s - 5)} & = \frac{3}{(s - 1)(s - 2)(s - 5)} + \\
+                & + \frac{2s - 9}{(s - 1)(s - 5)} - \frac{12}{(s - 1)(s - 5)}
+            \end{aligned}
+        \end{displaymath}
+        \[\frac{3 + (2s - 9)(s - 2) - 12(s - 2)}{(s - 1)(s - 2)(s - 5)} = \]
+        \[ = \frac{3}{(s - 1)(s - 2)(s - 5)} + \frac{2s - 9}{(s - 1)(s - 5)} - \frac{12}{(s - 1)(s - 5)}\]
+
+        Using partial fraction decomposition:
+        \begin{enumerate}
+            \item
+                \[\frac{A}{s - 1} + \frac{B}{s - 2} + \frac{C}{s - 5} = \frac{3}{(s - 1)(s - 2)(s - 5)}\]
+
+                \[A(s^2 - 7s + 10) + B(s^2 - 6s + 5) + C(s^2 - 3s + 2) = 3\]
+
+                \begin{displaymath}
+                    \begin{cases}
+                        A + B + C = 0 \\
+                        -7A -6B - 3C = 0 \\
+                        10A + 5B + 2C = 3
+                    \end{cases}
+                \end{displaymath}
+
+                Hence $A = \frac{3}{4},\ B = -1,\ C = \frac{1}{4}$.
+            \item 
+                \[\frac{A}{s - 1} + \frac{B}{s - 5} = \frac{2s - 9}{(s - 1)(s - 5)}\]
+
+                \[A(s - 5) + B(s - 1) = 2s - 9\]
+
+                \begin{displaymath}
+                    \begin{cases}
+                        A + B = 2 \\
+                        -5A - B = -9
+                    \end{cases}
+                \end{displaymath}
+
+                Hence $A = \frac{7}{4},\ B = \frac{1}{4}$.
+            \item 
+                \[\frac{A}{s - 1} + \frac{B}{s - 5} = \frac{12}{(s - 1)(s - 5)}\]
+
+                \[A(s - 5) + B(s - 1) = 12\]
+
+                \begin{displaymath}
+                    \begin{cases}
+                        A + B = 0 \\
+                        -5A - B = 12
+                    \end{cases}
+                \end{displaymath}
+
+                Hence $A = -3,\ B = 3$.
+        \end{enumerate}
+
+        After decomposition we obtain:
+        \[F(S) = \frac{3}{4(s - 1)} - \frac{1}{s - 2} + \frac{1}{4(s - 5)} + \frac{7}{4(s - 1)} + \frac{1}{4(s - 5)} + \frac{3}{s - 1} - \frac{3}{s - 5}\]
+
+        Applying Inverse Laplace transform:
+
+        \[f(t) = \frac{3}{4} e^t - e^{2t} + \frac{1}{4} e^{5t} + \frac{7}{4}e^t + \frac{1}{4}e^{5t} + 3e^t - 3e^{5t}\]
+
+        \[f(t) = \frac{22}{4} e^t - e^{2t} - \frac{5}{2}e^{5t}\]
+
+\end{enumerate}
+
+As we can see, in both scenarios the correspondence is wrong
+
+\subsection*{Answer}
+
+The correspondence is wrong

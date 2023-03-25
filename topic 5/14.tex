@@ -1,0 +1,55 @@
+\section*{Task 5.14}
+
+\subsection*{Task statement}
+
+Show that the equation $y'' - 6y' - 9y = 0$ has a general solution $y = (C_1 + C_2 x)e^{3x}$. What is the most general solution of this
+equation?
+
+\subsection*{Solution}
+
+The equation is a linear homogeneous second order ordinary differential equation.
+
+Let $y = e^{ax}$, then
+
+\[a^2 e^{ax} - 6a e^{ax} + 9 e^{ax} = 0\]
+\[a^2 - 6a - 9 = 0\]
+
+Solving this equation, we obtain the root $a = 3$.
+
+We have a mulitple root, hence we should adopt $y_1 = e^{3x}$ as the first partial solution of the equation.
+
+To do it, I will use variable variation to find an independent particular solution $y_2 = zy_1 = ze^{3x}$.
+
+The derivatives of $y_2$:
+
+\begin{displaymath}
+    \begin{aligned}
+        y_2^{\prime} & = z' e^{3x} + 3z e^{3x} \\
+        y_2^{\prime \prime} & = z'' e^{3x} + 3z' e^{3x} + 3z' e^{3x} + 9z e^{3x} = e^{3x}(z'' + 6z' + 9z)
+    \end{aligned}
+\end{displaymath}
+
+Instantiating $y_2,\ y_2^{\prime} \ y_2^{\prime \prime}$ in to the equation we obtain:
+
+\begin{displaymath}
+    \begin{aligned}
+        e^{3x}(z'' + 6z' + 9z) - 6e^{3x} (z' + 3z) + 9ze^{3x} & = 0 \\
+        z'' + 6z' + 9z - 6z' - 18z + 9z & = 0 \\
+        z'' & = 0 
+    \end{aligned}
+\end{displaymath}
+
+Integrating $z''$ by $x$ we obtain:
+
+\begin{displaymath}
+    \begin{aligned}
+        z' & = \int 0 dx = C_2 \\
+        z & = \int C_2 dx = C_2 x + C_1
+    \end{aligned}
+\end{displaymath}
+
+Hence we obtain the solution: $y_2 = (C_1 + C_2x)e^{3x}$. It contains of two partial solutions: $C_1 e^{3x}$ and $C_2x e^{3x}$. They are linearly independent, therefore the solution is the most general.
+
+\subsection*{Answer}
+
+The solution $y = (C_1 + C_2x)e^{3x}$ is a general solution (shown above) and it is the most general.

@@ -1,0 +1,76 @@
+\section*{Task 6.5}
+
+\subsection*{Task statement}
+
+Solve system $y_1^{\prime} = 2y_1 + 3y_2$ and $y_2^{\prime} = 4y_1 - 2y_2$ using matrix exponent, eigenvalues and eigenvectors.
+
+\subsection*{Solution}
+
+Representation of the system in matrix form:
+
+\[\begin{pmatrix} y_1 \\ y_2 \end{pmatrix} = e^{\begin{pmatrix} 2 & 3 \\ 4 & -2 \end{pmatrix}x} \begin{pmatrix} C_1 \\ C_2 \end{pmatrix} \]
+
+To find matrix exponential, we need to find eigenvalues and eigenvectors:
+
+\begin{itemize}
+    \item Eigenvalues:
+    \begin{displaymath}
+        \begin{aligned}
+            det \begin{pmatrix} 2 - \lambda & 3 \\ 4 & -2 - \lambda \end{pmatrix} & = 0 \\
+            (2 - \lambda)(-2 - \lambda) - 12 & = 0 \\
+            \lambda^2 - 4 - 12 & = 0 \\
+            \lambda & = \pm 4
+        \end{aligned}
+    \end{displaymath}
+    \item Eigenvectors:
+        \begin{enumerate}
+            \item $\lambda = 4$:
+                \begin{displaymath}
+                    \begin{aligned}
+                        \begin{pmatrix} -2 & 3 \\ 4 & -6 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} & = 0 \\
+                        \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} & = \begin{pmatrix} 3 \\ 2 \end{pmatrix} \\
+                        v_1 & = \begin{pmatrix} 3 \\ 2 \end{pmatrix}
+                    \end{aligned}
+                \end{displaymath}
+            \item $\lambda = -4$:
+                \begin{displaymath}
+                    \begin{aligned}
+                        \begin{pmatrix} 6 & 3 \\ 4 & 2 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} & = 0 \\
+                        \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} & = \begin{pmatrix} -1 \\ 2 \end{pmatrix} \\
+                        v_2 & = \begin{pmatrix} -1 \\ 2 \end{pmatrix}
+                    \end{aligned}
+                \end{displaymath}
+        \end{enumerate}
+    \item Matrix exponential:
+        
+        Let $V = \begin{pmatrix} v_1 & v_2 \end{pmatrix} = \begin{pmatrix} 3 & -1 \\ 2 & 2 \end{pmatrix}$
+
+        \begin{displaymath}
+            \begin{aligned}
+                e^{\begin{pmatrix} 2 & 3 \\ 4 & -2 \end{pmatrix}x} & = V e^{\Lambda x} V^{-1} \\
+                & = \begin{pmatrix} 3 & -1 \\ 2 & 2 \end{pmatrix} e^{\begin{pmatrix} 4 & 0 \\ 0 & -4 \end{pmatrix}} \frac{1}{4} \begin{pmatrix} -1 & \frac{3}{2} \\ 1 & \frac{1}{2} \end{pmatrix} \\
+                & = \frac{1}{4} \begin{pmatrix} e^{-4x} + 3e^{4x} & \frac{3}{2} (e^{4x} - e^{-4x}) \\ 2(e^{4x} - e^{-4x}) & 3e^{-4x} + e^{4x} \end{pmatrix}
+            \end{aligned}
+        \end{displaymath}
+\end{itemize}
+
+Hence the solution is $\begin{pmatrix} y_1 \\ y_2 \end{pmatrix} = \frac{1}{4} \begin{pmatrix} e^{-4x} + 3e^{4x} & \frac{3}{2} (e^{4x} - e^{-4x}) \\ 2(e^{4x} - e^{-4x}) & 3e^{-4x} + e^{4x} \end{pmatrix} \begin{pmatrix} C_1 \\ C_2 \end{pmatrix}$.
+
+Or:
+
+\begin{displaymath}
+    \begin{aligned}
+        y_1 & = C_1(e^{-4x} + 3e^{4x}) + C_2(e^{4x} - e^{-4x}) \\
+        y_2 & = C_1(e^{4x} - e^{-4x}) + C_2(3e^{-4x} + e^{4x})
+    \end{aligned}
+\end{displaymath}
+
+\subsection*{Answer}
+
+The solution for the system: 
+\begin{displaymath}
+    \begin{aligned}
+        y_1 & = C_1(e^{-4x} + 3e^{4x}) + C_2(e^{4x} - e^{-4x}) = D_1e^{-4x} + D_2e^{4x} \\
+        y_2 & = C_1(e^{4x} - e^{-4x}) + C_2(3e^{-4x} + e^{4x}) = D_3e^{-4x} + D_4e^{4x}
+    \end{aligned}
+\end{displaymath}

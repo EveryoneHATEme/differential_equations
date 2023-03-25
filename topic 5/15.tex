@@ -1,0 +1,43 @@
+\section*{Task 5.15}
+
+\subsection*{Task statement}
+
+Find a particular solution of the equation $y'' - 4y' + 13 y = 2x + 1$.
+
+\subsection*{Solution}
+
+The equation is a linear non-homogeneous second order ordinary differential equation.
+
+To find a partial solution, we should find a partial solution in a form of $z = Ax + B$.
+
+\begin{displaymath}
+    \begin{aligned}
+        z & = Ax + B \\
+        z' & = A \\
+        z'' & = 0
+    \end{aligned}
+\end{displaymath}
+
+Instantiating $z,\ z',\ z''$ into the equation, we obtain:
+
+\[-4A + 13Ax + 13B = 2x + 1\]
+
+Since two polynomials are equal iff corresponding coefficients are equal, we have:
+
+\begin{displaymath}
+    \begin{cases}
+        13A = 2 \\
+        13B - 4A = 1
+    \end{cases}
+    \text{or}
+    \begin{cases}
+        A = \frac{2}{13} \\
+        B = \frac{21}{169}
+    \end{cases}
+\end{displaymath}
+
+Hence a particular solution for the equation is $y = \frac{2}{13}x + \frac{21}{169}$.
+
+\subsection*{Answer}
+
+A particular solution for the equation: $y = \frac{2}{13}x + \frac{21}{169}$.

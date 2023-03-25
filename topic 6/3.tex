@@ -1,0 +1,56 @@
+\section*{Task 6.3}
+
+\subsection*{Task statement}
+
+Solve system $\begin{cases}
+    y_1^{\prime} = 5y_1 + 2y_2 \\
+    y_2^{\prime} = -4y_1 + y_2
+\end{cases}$
+
+\subsection*{Solution}
+
+Let us differentiate the first equation:
+
+\[y_1^{\prime \prime} = 5y_1^{\prime} + 2y_2^{\prime}\]
+
+After instantiating the second equation into it, we obtain:
+
+\[y_1^{\prime \prime} = 5y_1^{\prime} - 8y_1 + 2y_2\]
+
+From the first equation: $y_2 = \frac{y_1^{\prime} - 5y_1}{2}$. Let us instantiate it in the equation above:
+
+\[y_1^{\prime \prime} = 6y_1^{\prime} - 13y_1\]
+
+The equation obtained is a linear homogeneous second order differential equation.
+
+\begin{displaymath}
+    \begin{aligned}
+        y_1^{\prime \prime} - 6y_1^{\prime} + 13y_1 & = 0 \\ 
+        a^2 e^{ax} - 6a e^{ax} + 13 e^{ax} & = 0 \\
+        a^2 - 6a + 13 & = 0 \\
+        a & = 3 \pm 2i
+    \end{aligned}
+\end{displaymath}
+
+Hence 
+\begin{displaymath}
+    \begin{aligned}
+        y_1 & = C_1 e^{(3 + 2i)x} + C_2 e^{(3 - 2i)x} \\
+        & = C_1 e^{3x} e^{2ix} + C_2 e^{3x} e^{-2ix} \\
+        & = e^{3x} (C_1 \cos{2x} + C_1 i \sin{2x} + C_2 \cos{2x} - C_2 i \sin{2x}) \\
+        & = e^{3x} ((C_1 + C_2) \cos{2x} + i(C_1 - C_2) \sin{2x}) \\
+        & = e^{3x} (D_1 \cos{2x} + D_2 \sin{2x})
+    \end{aligned}
+\end{displaymath}
+
+We know that $y_2 = \frac{y_1^{\prime} - 5y_1}{2}$, hence $y_2 = \frac{e^{3x}}{2} (3(D_1 \cos{2x} + D_2 \sin{2x}) + 2(D_2 \cos{2x} - D_1 \sin{2x}) - 5(D_1 \cos{2x} + D_2 \sin{2x})) = -D_1 e^{3x} (\cos{2x} + \sin{2x}) + D_2(\cos{2x} - \sin{2x})$
+
+\subsection*{Answer}
+
+The solution for given system is: $\begin{pmatrix}
+y_1 \\ y_2
+\end{pmatrix} = - D_1 e^{3x} \begin{pmatrix}
+    \cos{2x} \\ \cos{2x} + \sin{2x}
+\end{pmatrix} + D_2 e^{3x} \begin{pmatrix}
+    \sin{2x} \\ \cos{2x} - \sin{2x}
+\end{pmatrix}$

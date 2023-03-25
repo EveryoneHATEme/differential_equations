@@ -1,0 +1,70 @@
+\section*{Task 5.12}
+
+\subsection*{Task statement}
+
+Let $a \neq b \in \mathbf{R}$ be real numbers and $x$ ranges over $\mathbf{R}$.
+
+\begin{enumerate}[label=\alph*]
+    \item Show that functions $e^{ax}$ and $e^{bx}$ are (linearly) independent.
+    \item Does there exist a second-order linear homogeneous equation that has two partial solutions $e^{ax}$ and $e^{bx}$?
+    \item Does there exist a second-order linear homogeneous equation with a general solution $C_1 e^{ax} + C_2 e^{bx}$? ($C_1,\ C_2 \in \mathbf{R}$).
+\end{enumerate}
+
+Does there exist a second-order linear homogeneous equation that has $Ce^{ax}$ as the most general solution ($C \in \mathbf{R}$)?
+
+\subsection*{Solution}
+
+\begin{enumerate}[label=\alph*]
+    \item Two functions are linearly dependent if $c_1 e^{ax} + c_2 e^{bx} = 0$ for $c_1,\ c_2 \neq 0$.
+
+        \begin{displaymath}
+            \begin{aligned}
+                c_1 e^{ax} + c_2 e^{bx} & = 0 \\
+                e^{ax} & = -\frac{c_2}{c_1}e^{bx} \\
+                -\frac{c_2}{c_1} & = e^{(a - b)x}
+            \end{aligned}
+        \end{displaymath}
+
+        On a left-hand side we have a constant, on a right-hand side we have a function of argument $t$. The function can be equal to a constant if it is independent on its argument, it is possible only if $a = b$, but it contradicts to the task statement, therefore the functions are linearly independent.
+    
+    \item Let us write second-order linear homogeneous equation:
+        $$y'' + p y' + qy = 0$$
+
+        Then after substuting two partial solutions $e^{ax}$ and $e^{bx}$ we obtain:
+        $$\begin{cases}
+            a^2 e^{ax} + ap e^{ax} + qe^{ax} = 0 \\
+            b^2 e^{bx} + bp e^{bx} + qe^{bx} = 0
+        \end{cases}
+        \Longrightarrow 
+        \begin{cases}
+            a^2 + ap + q = 0 \\
+            b^2 + bp + q = 0
+        \end{cases}$$
+
+        Applying Vietta's formulas for quadratic polynomials:
+
+        $$\begin{cases}
+            p = -(a + b) \\
+            q = ab
+        \end{cases}$$
+
+        There exist a second-order linear homogeneous equation with given partial solutions:
+        $$y'' - (a + b)y' + (ab)y = 0$$
+    
+    \item Previously I proved that:
+        \begin{enumerate}
+            \item functions $e^{ax}$ and $e^{bx}$ are linearly independent
+            \item there exist a second-order linear homogeneous equation with partial solutions $e^{ax}$ and $e^{bx}$.
+        \end{enumerate}
+
+        Hence $e^{ax}$ and $e^{bx}$ form a solution space for the equation $y'' - (a + b)y' + (ab)y = 0$, and a general solution for this equation is $y = C_1 e^{ax} + C_2 e^{bx}$.
+\end{enumerate}
+
+\subsection*{Answer}
+
+Above I proved that 
+\begin{enumerate}[label=\alph*]
+    \item The functions $e^{ax}$ and $e^{bx}$ are linearly independent.
+    \item There exist a second-order linear homogeneous equation that has two partial solutions $e^{ax}$ and $e^{bx}$ and it has form $y'' - (a + b)y' + (ab)y = 0$.
+    \item There exist a second-order linear homogeneous equation with a general solution $C_1 e^{ax} + C_2 e^{bx}$? ($C_1,\ C_2 \in \mathbf{R}$).
+\end{enumerate}

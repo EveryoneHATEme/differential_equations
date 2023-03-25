@@ -1,0 +1,97 @@
+\section*{Task 7.1}
+
+\subsection*{Task statement} Show that 
+\begin{enumerate}
+    \item $L(\sin{\omega t}) =$ if $s > 0$ then $\frac{\omega}{s^2 + \omega^2}$ else undefined
+    \item $L(\cos{\omega t}) =$ if $s > 0$ then $\frac{s}{s^2 + \omega^2}$ else undefined
+\end{enumerate}
+
+\subsection*{Solution}
+
+\begin{enumerate}
+    \item $L(\sin{\omega t})$
+        \[L(\sin{\omega t}) = \int_0^{\infty} e^{-st} \sin{\omega t} dt\]
+
+        First, let us find the indefinite integral:
+        
+        \begin{displaymath}
+            \begin{aligned}
+                \int e^{-st} \sin{\omega t} dt & = -\frac{e^{-st} \sin{\omega t}}{s} + \frac{\omega}{s} \int e^{-st} \cos{\omega t} dt \\
+                & = -\frac{e^{-st} \sin{\omega t}}{s} + \frac{\omega}{s} (-\frac{e^{-st} \cos{\omega t}}{s} - \frac{\omega}{s} \int e^{-st} \sin{\omega t} dt) \\
+                & = -\frac{e^{-st} \sin{\omega t}}{s} - \frac{\omega e^{-st} \cos{\omega t}}{s^2} - \frac{\omega^2}{s^2} \int e^{-st} \sin{\omega t} dt \\
+                s^2 \int e^{-st} \sin{\omega t} dt & = -s e^{-st} \sin{\omega t} - \omega e^{-st} - \omega^2 \int e^{-st} \sin{\omega t} dt \\
+                \int e^{-st} \sin{\omega t} dt & = -\frac{e^{-st} (s \sin{\omega t} + \omega \cos{\omega t})}{s^2 + \omega^2}
+            \end{aligned}
+        \end{displaymath}
+        
+        Then we will find definite integral (Note that the integral will diverge for $s < 0$ and equal to zero for $s = 0$):
+        
+        \begin{displaymath}
+            \begin{aligned}
+                \int_0^{\infty} e^{-st} \sin{\omega t} dt & = -\frac{e^{-st} (s \sin{\omega t} + \omega \cos{\omega t})}{s^2 + \omega^2}\Bigr|_0^{\infty} \\ 
+                & = \lim_{l \to \infty} \frac{e^{-sl} (s \sin{\omega l} + \omega \cos{\omega l})}{s^2 + \omega^2} + \frac{e^0 (s \sin{0} + \omega \cos{0})}{s^2 + \omega^2} \\
+                & = \frac{\omega}{s^2 + \omega^2}
+            \end{aligned}
+        \end{displaymath}
+        
+        \[L(\cos{\omega t}) = \int_0^{\infty} \cos{\omega t} dt\]
+    \item $L(\cos{\omega t})$
+    
+        First, let us find the indefinite integral:
+
+        \begin{displaymath}
+            \begin{aligned}
+                \int \cos{\omega t} dt & = -\frac{e^{-st} \cos{\omega t}}{s} - \frac{\omega}{s} \int e^{-st} \sin{\omega t} dt \\
+                & = -\frac{e^{-st} \cos{\omega t}}{s} + \frac{\omega}{s^2} e^{-st} \sin{\omega t} - \frac{\omega^2}{s^2} \int e^{-st} \cos{\omega t} dt \\
+                s^2 \int \cos{\omega t} dt & = s e^{-st} \cos{\omega t} + \omega e^{-st} \sin{\omega} - \omega^2 \int e^{-st} \cos{\omega t} dt \\
+                \int \cos{\omega t} dt & = \frac{e^{-st} (\omega \sin{\omega t} - s \cos{\omega t})}{s^2 + \omega^2}
+            \end{aligned}
+        \end{displaymath}
+        
+        Then we will find definite integral (Note that the integral will diverge for $s < 0$ and equal to zero for $s = 0$):
+        
+        \begin{displaymath}
+            \begin{aligned}
+                \int_0^{\infty} \cos{\omega t} dt & = \frac{e^{-st} (\omega \sin{\omega t} - s \cos{\omega t})}{s^2 + \omega^2} \Bigr|_0^{\infty} \\
+                & = \lim_{l \to \infty} \frac{e^{sl} (\omega \sin{\omega l} - s \cos{\omega l})}{s^2 + \omega^2} - \frac{e^0 \omega \sin{0} - s \cos{0}}{s^2 + \omega^2} \\
+                & = \frac{s}{s^2 + \omega^2}
+            \end{aligned}
+        \end{displaymath}
+\end{enumerate}
+
+\subsection*{Answer}
+
+Above shown the proofs
+
+\subsection*{Alternative solution}
+
+From Euler's identity: $e^{i \omega t} = \cos{\omega t} + i\sin{\omega t}$
+
+According to superposition property of Laplace transform: Let $f,\ g:\ [0, \infty] \to \mathbf{R}$
+and $\alpha,\ \beta \in \mathbf{R}$; then $L(\alpha f + \beta g) = $ at every point $s \in \mathbf{R}$ where both $L(f)$ and $L(g)$ are defined. (from lecture topic 7, slide 9)
+
+Hence $L(e^{i \omega t} = L(\cos{\omega t}) + i \sin{\omega t})$.
+
+\begin{displaymath}
+    \begin{aligned}
+        L(e^{i \omega t} & = \int_0^{\infty} e^{i \omega - s}t) dt \\
+        & = \frac{1}{i \omega - s} \int_0^{\infty} e^{i \omega - s}t) d((i \omega - s)t) \\
+        & = \frac{1}{s - i \omega} \\
+        & = \frac{s + i \omega}{s^2 + \omega^2}
+    \end{aligned}
+\end{displaymath}
+
+Then we will take real part of the transform to obtain transform of cosine and imaginary part to obtain transform of sine:
+
+\begin{displaymath}
+    \begin{aligned}
+        L(\cos{\omega t}) & = Re(L(e^{i \omega t}) = \frac{s}{s^2 + \omega^2} \\
+        L(\sin{\omega t}) & = Im(L(e^{i \omega t}) = \frac{\omega}{s^2 + \omega^2}
+    \end{aligned}
+\end{displaymath}
+
+This approach has two problems: 
+\begin{enumerate}
+    \item In the slides it is said that $\alpha,\ \beta \in \mathbf{R}$, but here we use it for complex numbers (I don't know why it is like that)
+    \item We don't know the limits on $s$
+\end{enumerate}

@@ -1,0 +1,47 @@
+\section*{Task 6.2}
+
+\subsection*{Task statement}
+
+Solve system $\begin{cases}
+    y_1^{\prime} = 6y_1 - y_2 \\
+    y_2^{\prime} = y_1 + 4y_2
+\end{cases}$
+
+\subsection*{Solution}
+
+Let us differentiate the first equation:
+
+\[y_1^{\prime \prime} = 6y_1^{\prime} - y_2^{\prime}\]
+
+After instantiating the second equation into it, we obtain:
+
+\[y_1^{\prime \prime} = 6y_1^{\prime} - y_1 - 4y_2\]
+
+From the first equation: $y_2 = 6y_1 - y_1^{\prime}$. Let us instantiate it in the equation above:
+
+\[y_1^{\prime \prime} = 10y_1^{\prime} - 25y_1\]
+
+The equation obtained is a linear homogeneous second order differential equation.
+
+\begin{displaymath}
+    \begin{aligned}
+        y_1^{\prime \prime} - 10y_1^{\prime} + 25y_1 & = 0 \\ 
+        a^2 e^{ax} - 10a e^{ax} + 25 e^{ax} & = 0 \\
+        a^2 - 10a + 25 & = 0 \\
+        a & = 5
+    \end{aligned}
+\end{displaymath}
+
+Hence $y_1 = C_1 e^{5x} + C_2 x e^{5x}$.
+
+We know that $y_2 = 6y_1 - y_1^{\prime}$, hence $y_2 = C_1 e^{5x} + C_2 x e^{5x} - C_2 e^{5x}$
+
+\subsection*{Answer}
+
+The solution for given system is: $\begin{pmatrix}
+y_1 \\ y_2
+\end{pmatrix} = C_1 \begin{pmatrix}
+    e^{5x} \\ e^{5x}
+\end{pmatrix} + C_2 \begin{pmatrix}
+    x e^{5x} \\ -e^{5x} + x e^{5x}
+\end{pmatrix}$

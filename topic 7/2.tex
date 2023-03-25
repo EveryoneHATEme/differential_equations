@@ -1,0 +1,33 @@
+\section*{Task 7.2}
+
+\subsection*{Task statement}
+
+If $n \in \mathbf{N}$ then $L(t^n e^{at}) = $ if $s > a$ then $\frac{n!}{(s - a)^{n + 1}}$ else undefined.
+
+\subsection*{Solution}
+
+\begin{displaymath}
+    \begin{aligned}
+        L(t^n e^{at}) & = \int_0^{\infty} t^n e^{(a - s)t} dt \\
+        & = \frac{t^n e^{(a - s)t}}{a - s} \Bigr|_0^{\infty} - \int_0^{\infty} nt^{n - 1} \frac{e^{(a - s)t}}{a - s} dt \\
+        & = \frac{n}{s - a} \int_0^{\infty} t^{n - 1} e^{(a - s)t}
+    \end{aligned}
+\end{displaymath}
+
+Hence $L(t^n e^{at}) = \frac{n}{s - a} L(e^{at} t^{n - 1})$
+
+\begin{itemize}
+    \item For $n = 1$:
+    
+        $L(t^1 e^{at}) = \frac{1}{s - a} L(e^{at} t^0) = \frac{1}{(s - a)^2}$ (According to the first shift property)
+    
+    \item For $n = 2$:
+    
+        $L(t^2 e^{at}) = \frac{2}{s - a} L(e^{at} t^1) = \frac{2}{(s - a)^3}$
+
+    \item For $n = 3$:
+    
+        $L(t^3 e^{at}) = \frac{3}{s - a} L(e^{at} t^2) = \frac{6}{(s - a)^4}$
+\end{itemize}
+
+Hence $L(t^n e^{at}) = \frac{n!}{(s - a)^{n + 1}}$ for $s > a$.
